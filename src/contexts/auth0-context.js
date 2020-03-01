@@ -16,7 +16,7 @@ export class Auth0Provider extends Component {
     config = {
         domain: 'dev-mp2cenf2.eu.auth0.com',
         client_id: 'PhlytlbcTOMV2NL8CEsQhR81EQntXdTa',
-        redirect_uri: 'http://localhost:3000/homescreen'
+        redirect_uri: 'https://onebigthing.herokuapp.com/homescreen'
     };
 
     componentDidMount() {

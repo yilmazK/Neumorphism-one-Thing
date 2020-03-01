@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b4f127b-314d-4a3d-be6e-64d565c00096" name="Default Changelist" comment="" />
+    <list default="true" id="9b4f127b-314d-4a3d-be6e-64d565c00096" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Frontend/HomeScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frontend/HomeScreen.jsx" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +88,7 @@
       <updated>1582759030840</updated>
       <workItem from="1582759032063" duration="4614000" />
       <workItem from="1582793750422" duration="525000" />
-      <workItem from="1582822366774" duration="58669000" />
+      <workItem from="1582822366774" duration="59214000" />
     </task>
     <servers />
   </component>
