@@ -7,7 +7,6 @@ router.route('/add').post((req, res) => {
     const _id = req.body._id;
     const newUser = new User({username, expenses, _id});
     console.log(newUser);
-
     newUser.save()
         .then(() => { res.json(newUser) })
         .catch(err => res.status(400).json('Error: ' + err));
