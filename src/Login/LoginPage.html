@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sign In with Auth0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="LoginPagestyles.css">
+</head>
+<style>
+    body, html {
+        background-color: #EBECF0;
+    }
+
+    body, p, input, select, textarea, button {
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: -0.2px;
+        font-size: 16px;
+    }
+
+    div, p {
+        color: #BABECC;
+        text-shadow: 1px 1px 1px #FFF;
+    }
+
+    form {
+        padding: 16px;
+        width: 320px;
+        margin: 0 auto;
+    }
+
+    .segment {
+        padding: 32px;
+        text-align: center;
+    }
+
+    button, input {
+        border: 0;
+        outline: 0;
+        font-size: 16px;
+        border-radius: 32px;
+        padding: 16px;
+        background-color: #EBECF0;
+        text-shadow: 1px 1px 0 #ffffff;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 24px;
+        width: 100%;
+    }
+
+    input {
+        margin-right: 8px;
+        margin-bottom: 20px;
+        box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #ffffff;
+        width: 100%;
+        box-sizing: border-box;
+        transition: all 0.2s ease-in-out;
+        appearance: none;
+        -webkit-appearance: none;
+    }
+
+    input:focus {
+        box-shadow:  inset 1px 1px 2px #BABECC, inset -1px -1px 2px #ffffff;
+    }
+
+
+    button {
+        color: #61677C;
+        font-weight: bold;
+        box-shadow: -5px -5px 20px #ffffff, 5px 5px 20px #BABECC;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    button:hover, .bottom-icon:hover  {
+        box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px #BABECC;
+    }
+
+    button:active {
+        box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #ffffff;
+    }
+
+    button.unit {
+        border-radius: 8px;
+        line-height: 0;
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 8px;
+        font-size: 19px;
+    }
+
+    .icon {
+        height: 20px;
+        width: 20px;
+        margin-right: 0;
+    }
+
+
+    button.red{
+        margin-bottom: 15px;
+        display: block;
+        width: 100%;
+        color: #AE1100;
+    }
+
+    button.blue{
+        margin-bottom: 15px;
+        display: block;
+        width: 100%;
+        color: #006bae;
+    }
+
+    button.blue1{
+        font-weight: normal;
+        margin-bottom: 15px;
+        display: block;
+        width: 100%;
+        color: #006bae;
+    }
+
+
+    .input-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    label {
+        margin: 0;
+        flex: 1;
+    }
+
+    .bottom-icon{
+        border: 0;
+        outline: 0;
+        border-radius: 16px;
+        padding: 16px;
+        background-color: #EBECF0;
+        text-shadow: 1px 1px 0 #ffffff;
+        color: #61677C;
+        font-weight: bold;
+        box-shadow: -5px -5px 20px #ffffff, 5px 5px 20px #BABECC;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        line-height: 0;
+        width: 30px;
+        height: 30px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 8px;
+    }
+
+    .error-message{
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: #006bae;
+        height: 100vh;
+        width: 100%;
+        position:absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .error-image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 600px;
+    }
+
+
+</style>
+<body>
+<form>
+    <div class="segment">
+        <h1>Sign up</h1>
+    </div>
+    <div id="error-message"></div>
+
+    <label>
+        <input type="text" placeholder="Email Address" id="email"/>
+    </label>
+    <label>
+        <input type="password" placeholder="Password" id="password"/>
+    </label>
+    <button class="red" type="button" id="btn-login"><i class="icon ion-md-lock"></i> Log in</button>
+    <button class="blue" type="button" id="btn-register"><i class="icon ion-md-lock"></i> Register</button>
+    <button class="blue1" type="button" id="reset-password"><i class="icon ion-md-lock"></i> Reset Password</button>
+
+    <div class="segment">
+        <div class="bottom-icon" id="btn-google" ><img class="icon" src=https://icons-12.fra1.digitaloceanspaces.com/google.png></div>
+        <div class="bottom-icon" id="btn-facebook" ><img class="icon" src=https://icons-12.fra1.digitaloceanspaces.com/facebook.png></div>
+    </div>
+</form>
+<!--[if IE 8]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+<script src="https://cdn.auth0.com/js/polyfills/1.0/base64.min.js"></script>
+<script src="https://cdn.auth0.com/js/polyfills/1.0/es5-shim.min.js"></script>
+<![endif]-->
+
+<script src="https://cdn.auth0.com/js/auth0/9.12/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
+<script>
+    window.addEventListener('load', function() {
+
+        var config = JSON.parse(
+            decodeURIComponent(escape(window.atob('@@config@@')))
+        );
+        console.log(config);
+
+        var params = Object.assign({
+            /* additional configuration needed for use of custom domains
+            overrides: {
+              __tenant: config.auth0Tenant,
+              __token_issuer: 'YOUR_CUSTOM_DOMAIN'
+            }, */
+            domain: config.auth0Domain,
+            clientID: config.clientID,
+            redirectUri: config.callbackURL,
+            responseType: 'code'
+        }, config.internalOptions);
+
+        var webAuth = new auth0.WebAuth(params);
+
+        var databaseConnection = 'Username-Password-Authentication';
+
+        function login(e) {
+            e.preventDefault();
+            var username = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            webAuth.login({
+                realm: 'Username-Password-Authentication',
+                username: username,
+                password: password
+            }, function(err) {
+                console.log(err);
+                if (err) displayError(err);
+            });
+        }
+
+        function signup() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            webAuth.redirect.signupAndLogin({
+                connection: 'Username-Password-Authentication',
+                email: email,
+                password: password
+            }, function(err) {
+                if (err) displayError(err);
+            });
+        }
+
+        function loginWithGoogle() {
+            webAuth.authorize({
+                connection: 'google-oauth2'
+            }, function(err) {
+                if (err) displayError(err);
+            });
+        }
+
+        function loginWithFacebook() {
+            webAuth.authorize({
+                connection: 'facebook'
+            }, function(err) {
+                if (err) displayError(err);
+            });
+        }
+
+        function displayError(err) {
+            var errorMessage = document.getElementById('error-message');
+            errorMessage.innerHTML = err.description;
+            errorMessage.style.display = 'flex';
+        }
+
+        function reset(){
+            var email = document.getElementById('email').value;
+            webAuth.changePassword({
+                connection: 'Username-Password-Authentication',
+                email: email
+            }, function (err, resp) {
+                if(err){
+                    displayError(err);
+                }else{
+                    console.log(resp);
+                }
+            });
+        }
+
+        document.getElementById('btn-login').addEventListener('click', login);
+        document.getElementById('btn-register').addEventListener('click', signup);
+        document.getElementById('reset-password').addEventListener('click', reset);
+        document.getElementById('btn-google').addEventListener('click', loginWithGoogle);
+        document.getElementById('btn-facebook').addEventListener('click', loginWithFacebook);
+        document.getElementById('btn-signup').addEventListener('click', signup);
+    });
+</script>
+</body>
+</html>

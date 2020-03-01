@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Keeet - Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link href="https://app.keeet.io/style/auth0-global.css" rel="stylesheet">
+
+    <meta data-n-head="true" name="msapplication-TileColor" content="#ffffff">
+    <meta data-n-head="true" name="msapplication-TileImage" content="https://app.keeet.io/_favicons/mstile-144x144.png">
+    <meta data-n-head="true" name="msapplication-config" content="https://app.keeet.io/_favicons/browserconfig.xml">
+    <meta data-n-head="true" name="theme-color" content="#ffffff">
+    <link data-n-head="true" rel="icon" type="image/x-icon" href="https://app.keeet.io/favicon.ico">
+    <link data-n-head="true" rel="apple-touch-icon" sizes="180x180" href="https://app.keeet.io/_favicons/apple-touch-icon.png">
+    <link data-n-head="true" rel="icon" type="image/png" sizes="32x32" href="https://app.keeet.io/_favicons/favicon-32x32.png">
+    <link data-n-head="true" rel="icon" type="image/png" sizes="16x16" href="https://app.keeet.io/_favicons/favicon-16x16.png">
+    <link data-n-head="true" href="https://app.keeet.io/_favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link data-n-head="true" rel="shortcut icon" href="https://app.keeet.io/_favicons/favicon.ico">
+
+    <!-- start Mixpanel --><script type="text/javascript">(function(c,a){if(!a.__SV){var b=window;try{var d,m,j,k=b.location,f=k.hash;d=function(a,b){return(m=a.match(RegExp(b+"=([^&]*)")))?m[1]:null};f&&d(f,"state")&&(j=JSON.parse(decodeURIComponent(d(f,"state"))),"mpeditor"===j.action&&(b.sessionStorage.setItem("_mpcehash",f),history.replaceState(j.desiredHash||"",c.title,k.pathname+k.search)))}catch(n){}var l,h;window.mixpanel=a;a._i=[];a.init=function(b,d,g){function c(b,i){var a=i.split(".");2==a.length&&(b=b[a[0]],i=a[1]);b[i]=function(){b.push([i].concat(Array.prototype.slice.call(arguments,
+    0)))}}var e=a;"undefined"!==typeof g?e=a[g]=[]:g="mixpanel";e.people=e.people||[];e.toString=function(b){var a="mixpanel";"mixpanel"!==g&&(a+="."+g);b||(a+=" (stub)");return a};e.people.toString=function(){return e.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+    for(h=0;h<l.length;h++)c(e,l[h]);var f="set set_once union unset remove delete".split(" ");e.get_group=function(){function a(c){b[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));e.push([d,call2])}}for(var b={},d=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<f.length;c++)a(f[c]);return b};a._i.push([b,d,g])};a.__SV=1.2;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?
+    MIXPANEL_CUSTOM_LIB_URL:"file:"===c.location.protocol&&"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js";d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d)}})(document,window.mixpanel||[]);
+mixpanel.init("6c1bce81a6ee95e4298342cd9ff334e8");</script><!-- end Mixpanel -->
+</head>
+
+<style>
+    .login:not(.active),
+    .register:not(.active),
+    .registerMail:not(.active),
+    .resetPassword:not(.active) {
+        display: none;
+    }
+
+    .form-forgot-password {
+        margin: 5px 0;
+        text-align: right;
+        font-size: 90%;
+    }
+    .form-forgot-password-button {
+        color: #717AFA;
+    }
+    .form-forgot-password-button:hover {
+        cursor: pointer;
+    }
+    .form-register-name {
+        display: flex;
+        justify-content: space-between;
+    }
+    .form-terms-and-conditions {
+        margin: 15px 0;
+        display: flex;
+    }
+    .form-terms-and-conditions-checkbox {
+        margin-right: 10px;
+    }
+    .form-terms-and-conditions-text {
+        padding-top: 3px;
+    }
+    #terms-and-conditions-agreed {
+        display: none;
+    }
+    #terms-and-conditions-agreed + #terms-and-conditions-agreed-label {
+        position: relative;
+        display: block;
+        width: 22px;
+        height: 22px;
+        border: 1px solid #717AFA;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #terms-and-conditions-agreed + #terms-and-conditions-agreed-label svg {
+        position: absolute;
+        display: none;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 16px;
+        fill: #fff;
+    }
+    #terms-and-conditions-agreed:checked + #terms-and-conditions-agreed-label {
+        background-color: #717AFA;
+    }
+    #terms-and-conditions-agreed:checked + #terms-and-conditions-agreed-label svg {
+        display: inline;
+    }
+    #terms-and-conditions-agreed-label:hover {
+        cursor: pointer;
+    }
+
+    .register-menu-or {
+        margin: 15px 0;
+        text-align: center;
+    }
+</style>
+
+<body>
+<div class="wrapper">
+    <div id="loading" class="hidden">
+        <img src="https://app.keeet.io/animated/loading.svg" />
+    </div>
+    <div id="message">
+        <div class="message-inner">
+            <div class="message-cross">
+                <div class="message-cross-inner message">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z"/>
+                    </svg>
+                </div>
+                <div class="message-cross-inner error">
+                    <?xml version="1.0" encoding="iso-8859-1"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"     viewBox="0 0 212.982 212.982" style="enable-background:new 0 0 212.982 212.982;" xml:space="preserve"><g id="Close">	<path style="fill-rule:evenodd;clip-rule:evenodd;" d="M131.804,106.491l75.936-75.936c6.99-6.99,6.99-18.323,0-25.312		c-6.99-6.99-18.322-6.99-25.312,0l-75.937,75.937L30.554,5.242c-6.99-6.99-18.322-6.99-25.312,0c-6.989,6.99-6.989,18.323,0,25.312		l75.937,75.936L5.242,182.427c-6.989,6.99-6.989,18.323,0,25.312c6.99,6.99,18.322,6.99,25.312,0l75.937-75.937l75.937,75.937		c6.989,6.99,18.322,6.99,25.312,0c6.99-6.99,6.99-18.322,0-25.312L131.804,106.491z"/></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g></svg>
+                </div>
+            </div>
+            <div id="message-close">
+                <?xml version="1.0" encoding="iso-8859-1"?><!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"     viewBox="0 0 212.982 212.982" style="enable-background:new 0 0 212.982 212.982;" xml:space="preserve"><g id="Close">	<path style="fill-rule:evenodd;clip-rule:evenodd;" d="M131.804,106.491l75.936-75.936c6.99-6.99,6.99-18.323,0-25.312		c-6.99-6.99-18.322-6.99-25.312,0l-75.937,75.937L30.554,5.242c-6.99-6.99-18.322-6.99-25.312,0c-6.989,6.99-6.989,18.323,0,25.312		l75.937,75.936L5.242,182.427c-6.989,6.99-6.989,18.323,0,25.312c6.99,6.99,18.322,6.99,25.312,0l75.937-75.937l75.937,75.937		c6.989,6.99,18.322,6.99,25.312,0c6.99-6.99,6.99-18.322,0-25.312L131.804,106.491z"/></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g>  <g></g></svg>
+            </div>
+            <p id="message-text"></p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="logo">
+            <img src="https://app.keeet.io/img/logo.png" alt="Keeet" />
+        </div>
+        <div id="form" class="hidden">
+            <div class="form-header">
+                <h2 class="form-header-title login">Login</h2>
+                <h2 class="form-header-title register">Sign up</h2>
+                <h2 class="form-header-title registerMail">Sign up with email</h2>
+                <h2 class="form-header-title resetPassword">Reset password</h2>
+            </div>
+            <form id="form-body" onsubmit="return false;" method="post">
+                <div class="form-register-name registerMail">
+                    <input
+                            type="text"
+                            class="form-input half"
+                            id="first-name"
+                            placeholder="First name">
+                    <input
+                            type="text"
+                            class="form-input half"
+                            id="last-name"
+                            placeholder="Last name">
+                </div>
+                <input
+                        type="email"
+                        class="form-input login registerMail resetPassword"
+                        id="email"
+                        placeholder="Email">
+                <button
+                        type="button"
+                        id="btn-resetPassword"
+                        class="form-button resetPassword colored">
+                    Reset password
+                </button>
+                <input
+                        type="password"
+                        class="form-input login registerMail"
+                        id="password"
+                        placeholder="Password">
+                <input
+                        type="password"
+                        class="form-input registerMail"
+                        id="password-confirm"
+                        placeholder="Confirm password">
+                <div class="form-forgot-password login">
+                    <span id="btn-showResetPassword" class="form-forgot-password-button">Reset your password</span>
+                </div>
+                <button
+                        type="button"
+                        id="btn-login"
+                        class="form-button login colored">
+                    Login
+                </button>
+                <div class="register-menu register">
+                    <button
+                            type="button"
+                            id="btn-showRegisterMail"
+                            class="form-button colored">
+                        Sign up with email
+                    </button>
+                    <p class="register-menu-or">
+                        or
+                    </p>
+                </div>
+                <div class="form-terms-and-conditions registerMail">
+                    <div class="form-terms-and-conditions-checkbox">
+                        <input type="checkbox" id="terms-and-conditions-agreed" />
+                        <label id="terms-and-conditions-agreed-label" for="terms-and-conditions-agreed">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z"/>
+                            </svg>
+                        </label>
+                    </div>
+                    <p class="form-terms-and-conditions-text">
+                        I agree to the
+                        <a href="https://keeet.io" target="_blank">Terms and Services</a> and
+                        <a href="https://keeet.io" target="_blank">Privacy Policy</a>
+                    </p>
+                </div>
+                <button
+                        type="button"
+                        id="btn-register"
+                        class="form-button registerMail colored">
+                    Sign up
+                </button>
+                <button
+                        type="button"
+                        id="btn-google"
+                        class="form-button login register white">
+                    <img class="form-button-icon" src="https://app.keeet.io/icons/googleloginlogo.png" />
+                    <span class="login">
+          Login with Google
+        </span>
+                    <span class="register">
+          Sign up with Google
+        </span>
+                </button>
+                <button
+                        type="button"
+                        id="btn-linkedin"
+                        class="form-button login register white">
+                    <img class="form-button-icon" src="https://app.keeet.io/icons/linkedinlogobutton.png" />
+                    <span class="login">
+          Login with Linkedin
+        </span>
+                    <span class="register">
+          Sign up with Linkedin
+        </span>
+                </button>
+                <div class="form-footer login">
+                    <span class="form-footer-question">Don't have an account?</span>
+                    <span id="btn-showRegister" class="form-footer-button">Sign up</span>
+                </div>
+                <div class="form-footer register registerMail">
+                    <span class="form-switch-question">Already have an account?</span>
+                    <span class="btn-showLogin form-footer-button">Login</span>
+                </div>
+                <div class="form-footer resetPassword">
+                    <span class="btn-showLogin form-footer-button">Back to Login</span>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footer-logo">
+            <a href="https://keeet.io" target="_blank">Keeet</a>
+        </div>
+        <p class="footer-nav-item">
+            <a href="https://keeet.io/legal/imprint.html" target="_blank">Imprint</a>
+        </p>
+        <p class="footer-nav-item">
+            <a href="https://keeet.io/legal/terms.html" target="_blank">Terms of Service</a>
+        </p>
+        <p class="footer-nav-item">
+            <a href="https://keeet.io/legal/terms.html" target="_blank">Privacy Policy</a>
+        </p>
+    </div>
+</div>
+
+<!--[if IE 8]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
+<![endif]-->
+
+<!--[if lte IE 9]>
+<script src="https://cdn.auth0.com/js/polyfills/1.0/base64.min.js"></script>
+<script src="https://cdn.auth0.com/js/polyfills/1.0/es5-shim.min.js"></script>
+<![endif]-->
+
+<script src="https://cdn.auth0.com/js/auth0/9.10/auth0.min.js"></script>
+<script src="https://cdn.auth0.com/js/polyfills/1.0/object-assign.min.js"></script>
+<script src="https://app.keeet.io/js/auth0-global.js"></script>
+<script>
+    window.addEventListener('load', function () {
+
+        const redirectUrl = new URLSearchParams(window.location.search).get('redirect_uri')
+        const invitationIdSplit = redirectUrl.split('?invitationId=')
+        const invitationId = invitationIdSplit.length === 2 ? invitationIdSplit[1] : undefined
+
+        const redirectParamsSplit = redirectUrl.split('?redirectParams=')
+        const redirectParams = redirectParamsSplit.length === 2 ? redirectParamsSplit[1] : undefined
+
+        const redirectParamsDecoded = decodeURIComponent(redirectParams);
+
+        const registerFlagSplit = redirectParamsDecoded.split('register=')
+        const registerFlag = registerFlagSplit.length === 2 ? registerFlagSplit[1] : undefined
+
+        config = JSON.parse(
+            decodeURIComponent(escape(window.atob('@@config@@')))
+        );
+
+        var params = Object.assign({
+            /* additional configuration needed for use of custom domains
+            overrides: {
+              __tenant: config.auth0Tenant,
+              __token_issuer: 'YOUR_CUSTOM_DOMAIN'
+            }, */
+            domain: config.auth0Domain,
+            clientID: config.clientID,
+            redirectUri: config.callbackURL,
+            responseType: 'token id_token'
+        }, config.internalOptions);
+
+        var webAuth = new auth0.WebAuth(params);
+
+        var databaseConnection = 'Username-Password-Authentication';
+
+        function login() {
+            var username = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            if (document.getElementById("form-body").checkValidity()) {
+                showLoading()
+                webAuth.login({
+                    realm: databaseConnection,
+                    username: username,
+                    password: password
+                }, function (err) {
+                    if (err) {
+                        hideLoading()
+                        showError(err.description);
+                    }
+                });
+            }
+        }
+
+        function signup() {
+            var firstName = document.getElementById('first-name').value;
+            var lastName = document.getElementById('last-name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var passwordConfirm = document.getElementById('password-confirm').value;
+            var tc = document.getElementById('terms-and-conditions-agreed').checked;
+
+            if (password !== passwordConfirm) {
+                showError('passwords do not match.')
+                return
+            }
+            if (!tc) {
+                showError('Please agree on our terms and conditions.')
+                return
+            }
+            hideMessage()
+
+            if (document.getElementById("form-body").checkValidity()) {
+                webAuth.redirect.signupAndLogin({
+                    connection: databaseConnection,
+                    email: email,
+                    password: password,
+                    user_metadata: {
+                        "firstName": firstName,
+                        "lastName": lastName
+                    }
+                }, function (err) {
+                    if (err) {
+                        hideLoading()
+                        if (err.code === 'invalid_password') {
+                            showError('Password must have 8 characters including lower case (a-z), upper case (A-Z) and numbers (0-9)')
+                            return;
+                        }
+                        showError(err.description);
+                    }
+                });
+            }
+        }
+
+        function resetPassword() {
+            var email = document.getElementById('email').value;
+            var validEmail = document.getElementById('email').checkValidity();
+            if (!validEmail) {
+                return
+            }
+            if (document.getElementById("form-body").checkValidity()) {
+                showLoading()
+                webAuth.changePassword({
+                    connection: databaseConnection,
+                    email: email
+                }, function (err) {
+                    hideLoading()
+                    showLogin()
+                    showMessage('We\'ve sent a password reset link to your email address.')
+                    if (err) showError(err.description);
+                });
+            }
+        }
+
+        function loginWithGoogle() {
+            showLoading()
+            webAuth.authorize({
+                connection: 'google-oauth2'
+            }, function (err) {
+                if (err) {
+                    hideLoading()
+                    showError(err.description);
+                }
+            });
+        }
+
+        function loginWithLinkedin() {
+            showLoading()
+            webAuth.authorize({
+                connection: 'linkedin'
+            }, function (err) {
+                if (err) {
+                    hideLoading()
+                    showError(err.description);
+                }
+            });
+        }
+
+        function setButtonSubmit(id, isSubmit) {
+            document.getElementById(id).type = isSubmit ? 'submit': 'button'
+        }
+
+        function hideAll() {
+            return new Promise(function (resolve) {
+                hideForm().then(function () {
+                    Array.from(document.querySelectorAll('.login,.register,.registerMail,.resetPassword')).forEach(item => {
+                        item.classList.remove('active');
+                    })
+                    setRequired('first-name', false);
+                    setRequired('last-name', false);
+                    setRequired('email', false);
+                    setRequired('password', false);
+                    setRequired('password-confirm', false);
+
+                    setButtonSubmit('btn-login', false);
+                    setButtonSubmit('btn-register', false);
+                    setButtonSubmit('btn-resetPassword', false);
+                    resolve()
+                })
+            })
+        }
+
+        function setRequired(inputId, required) {
+            document.getElementById(inputId).required = required;
+        }
+
+        function showRegister() {
+            hideAll().then(function () {
+                Array.from(document.getElementsByClassName('register')).forEach(item => {
+                    item.classList.add('active');
+                })
+                showForm()
+            })
+        }
+
+        function showRegisterMail() {
+            hideAll().then(function () {
+                setRequired('first-name', true);
+                setRequired('last-name', true);
+                setRequired('email', true);
+                setRequired('password', true);
+                setRequired('password-confirm', true);
+                Array.from(document.getElementsByClassName('registerMail')).forEach(item => {
+                    item.classList.add('active');
+                })
+                setButtonSubmit('btn-register', true);
+                showForm()
+            })
+        }
+
+        function showLogin() {
+            hideAll().then(function () {
+                setRequired('email', true);
+                setRequired('password', true);
+                Array.from(document.getElementsByClassName('login')).forEach(item => {
+                    item.classList.add('active');
+                })
+                setButtonSubmit('btn-login', true);
+                showForm()
+            })
+        }
+
+        function showResetPassword() {
+            hideAll().then(function () {
+                setRequired('email', true);
+                Array.from(document.getElementsByClassName('resetPassword')).forEach(item => {
+                    item.classList.add('active');
+                })
+                setButtonSubmit('btn-resetPassword', true);
+                showForm()
+            })
+        }
+
+        document.getElementById('btn-login').addEventListener('click', login);
+        document.getElementById('btn-google').addEventListener('click', loginWithGoogle);
+        document.getElementById('btn-linkedin').addEventListener('click', loginWithLinkedin);
+        document.getElementById('btn-register').addEventListener('click', signup);
+        document.getElementById('btn-resetPassword').addEventListener('click', resetPassword);
+        document.getElementById('btn-showRegister').addEventListener('click', showRegister);
+        document.getElementById('btn-showRegisterMail').addEventListener('click', showRegisterMail);
+        Array.from(document.getElementsByClassName('btn-showLogin')).forEach(item => item.addEventListener('click', showLogin));
+        document.getElementById('btn-showResetPassword').addEventListener('click', showResetPassword);
+
+        document.getElementById('message-close').addEventListener('click', hideMessage);
+
+        if (invitationId || registerFlag) {
+            showRegister();
+            return;
+        }
+
+        showLogin();
+    });
+</script>
+</body>
+</html>

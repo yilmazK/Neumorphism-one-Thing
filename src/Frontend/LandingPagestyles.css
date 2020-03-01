@@ -1,0 +1,61 @@
+body{
+    margin: 0px;
+}
+
+button:focus {outline:0;}
+
+.landingpage-background{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f1f3f6;
+    height: 100vh;
+    width: 100%;
+}
+
+.landingpage-header{
+    font-family: Quicksand, sans-serif;
+    font-weight: lighter;
+    margin-bottom: 0px;
+    margin-top: 200px;
+    text-align: center;
+    color: rgb(85, 93, 113);
+    font-size: 50px;
+
+}
+
+.landingpage-description{
+    font-family: Quicksand, sans-serif;
+    font-weight: lighter;
+    color: rgb(85, 93, 113);
+    font-size: 14px;
+}
+
+.login-button{
+    border: none;
+    color: darkgray;
+    margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    height: 42px;
+    width: 128px;
+    background: white;
+
+    margin-bottom: 50px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background: var(--main-color);
+    border-radius: 40px;
+    top:0;left:0;right:0;bottom:0;
+    cursor: pointer;
+
+    box-shadow: -5px -5px 20px #ffffff, 5px 5px 20px #BABECC;
+    transition: all 0.2s ease-in-out;
+}
+
+.login-button:hover{
+    box-shadow: -2px -2px 5px #ffffff, 2px 2px 5px #BABECC;
+}
