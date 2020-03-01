@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, '../../build')));
+app.use(express.static("build"));
 
 const uri = 'mongodb+srv://Yilmaz:C5ee11ec@cluster0-jvbtm.gcp.mongodb.net/onebigthing?retryWrites=true&w=majority';
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
@@ -24,8 +24,9 @@ connection.once('open', () => {
 const userRouter = require('./user');
 app.use('/user', userRouter);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../build', 'index.html'))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname,  "build", "index.html"));
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
