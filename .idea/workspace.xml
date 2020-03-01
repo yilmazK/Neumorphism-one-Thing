@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b4f127b-314d-4a3d-be6e-64d565c00096" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Backend/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Backend/user.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/HomeScreen.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/HomeScreen1.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/HomeScreensytles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/LandingPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Frontend/LandingPagestyles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login/LoginPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login/LoginPagestyles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login/ResetPasswordPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login/loginKeeet.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Procfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/google.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/contexts/auth0-context.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="9b4f127b-314d-4a3d-be6e-64d565c00096" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +86,7 @@
       <updated>1582759030840</updated>
       <workItem from="1582759032063" duration="4614000" />
       <workItem from="1582793750422" duration="525000" />
-      <workItem from="1582822366774" duration="58254000" />
+      <workItem from="1582822366774" duration="58669000" />
     </task>
     <servers />
   </component>
