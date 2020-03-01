@@ -3,9 +3,9 @@ let User = require('./user.model');
 
 router.route('/add').post((req, res) => {
     const username = req.body.username;
-    const expenses = req.body.expenses;
+    const todos = req.body.todos;
     const _id = req.body._id;
-    const newUser = new User({username, expenses, _id});
+    const newUser = new User({username, todos, _id});
     console.log(newUser);
     newUser.save()
         .then(() => { res.json(newUser) })
