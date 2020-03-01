@@ -69,7 +69,7 @@ class HomeScreen extends React.Component{
                 "datum" : this.state.date
             };
 
-            axios.post('https://9dd3e5db.ngrok.io/user/update/' + this.props.userProp.sub, { new: answer })
+            axios.post('https://onebigthing.herokuapp.com/user/update/' + this.props.userProp.sub, { new: answer })
                 .then(res => {
                     console.log(res.data);
                 })
@@ -95,7 +95,7 @@ class HomeScreen extends React.Component{
                 "datum" : this.getCurrentDate()
             };
 
-            axios.post('https://9dd3e5db.ngrok.io/user/update/' + this.props.userProp.sub, { new: answer })
+            axios.post('https://onebigthing.herokuapp.com/user/update/' + this.props.userProp.sub, { new: answer })
                 .then(res => {
                     console.log(res.data);
                 })
@@ -120,7 +120,7 @@ class HomeScreen extends React.Component{
                 "datum" : this.getCurrentDate()
             };
 
-            axios.post('https://9dd3e5db.ngrok.io/user/update/' + this.props.userProp.sub, { new: answer })
+            axios.post('https://onebigthing.herokuapp.com/user/update/' + this.props.userProp.sub, { new: answer })
                 .then(res => {
                     console.log(res.data);
                 })
@@ -145,7 +145,7 @@ class HomeScreen extends React.Component{
                 "datum" : this.getCurrentDate()
             };
 
-            axios.post('https://9dd3e5db.ngrok.io/user/update/' + this.props.userProp.sub, { new: answer })
+            axios.post('https://onebigthing.herokuapp.com/user/update/' + this.props.userProp.sub, { new: answer })
                 .then(res => {
                     console.log(res.data);
                 })
@@ -170,7 +170,7 @@ class HomeScreen extends React.Component{
             "datum" : this.getCurrentDate()
         };
 
-        axios.post('https://9dd3e5db.ngrok.io/user/update/' + this.props.userProp.sub, { new: answer })
+        axios.post('https://onebigthing.herokuapp.com/user/update/' + this.props.userProp.sub, { new: answer })
             .then(res => {
                 console.log(res.data);
             })
@@ -190,7 +190,7 @@ class HomeScreen extends React.Component{
             "datum" : this.getCurrentDate()
         };
 
-        axios.post('https://9dd3e5db.ngrok.io/user/update/' + this.props.userProp.sub, { new: answer })
+        axios.post('https://onebigthing.herokuapp.com/user/update/' + this.props.userProp.sub, { new: answer })
             .then(res => {
                 console.log(res.data);
             })
@@ -210,7 +210,7 @@ class HomeScreen extends React.Component{
             "datum" : this.getCurrentDate()
         };
 
-        axios.post('https://9dd3e5db.ngrok.io/user/update/' + this.props.userProp.sub, { new: answer })
+        axios.post('https://onebigthing.herokuapp.com/user/update/' + this.props.userProp.sub, { new: answer })
             .then(res => {
                 console.log(res.data);
             })
@@ -230,7 +230,7 @@ class HomeScreen extends React.Component{
             "datum" : this.getCurrentDate()
         };
 
-        axios.post('https://9dd3e5db.ngrok.io/user/update/' + this.props.userProp.sub, { new: answer })
+        axios.post('https://onebigthing.herokuapp.com/user/update/' + this.props.userProp.sub, { new: answer })
             .then(res => {
                 console.log(res.data);
             })
