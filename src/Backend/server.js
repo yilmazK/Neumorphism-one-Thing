@@ -12,6 +12,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../../build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../build', 'index.html'))
+});
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
@@ -23,9 +26,7 @@ connection.once('open', () => {
 const userRouter = require('./user');
 app.use('/user', userRouter);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../build', 'index.html'))
-});
+
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
